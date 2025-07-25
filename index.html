@@ -3,91 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilingual Translator - English ⇄ Spanish</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>LinguaFlow - Beautiful Translation Experience</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+
     <div class="container">
         <header class="header">
-            <h1><i class="fas fa-language"></i> Bilingual Translator</h1>
-            <p class="subtitle">Professional English ⇄ Spanish Translation Service</p>
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>LinguaFlow</h1>
+                    <p class="tagline">Where languages meet beauty</p>
+                </div>
+            </div>
+            <div class="hero-subtitle">
+                Transform your words across cultures with elegant precision
+            </div>
         </header>
 
         <main class="translator-container">
-            <div class="language-selector">
-                <div class="language-option active" data-source="en" data-target="es">
-                    <span class="flag">🇺🇸</span>
-                    <span>English → Spanish</span>
-                    <span class="flag">🇪🇸</span>
+            <div class="translation-card">
+                <div class="card-header">
+                    <div class="language-selector">
+                        <div class="language-option active" data-source="en" data-target="es">
+                            <div class="flag-container">
+                                <span class="flag">🇺🇸</span>
+                                <span class="country-name">English</span>
+                            </div>
+                            <div class="arrow-indicator">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                            <div class="flag-container">
+                                <span class="flag">🇪🇸</span>
+                                <span class="country-name">Spanish</span>
+                            </div>
+                        </div>
+                        <button class="swap-btn" onclick="swapLanguages()" title="Swap Languages">
+                            <i class="fas fa-retweet"></i>
+                            <span class="swap-text">Swap</span>
+                        </button>
+                        <div class="language-option" data-source="es" data-target="en">
+                            <div class="flag-container">
+                                <span class="flag">🇪🇸</span>
+                                <span class="country-name">Spanish</span>
+                            </div>
+                            <div class="arrow-indicator">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                            <div class="flag-container">
+                                <span class="flag">🇺🇸</span>
+                                <span class="country-name">English</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button class="swap-btn" onclick="swapLanguages()">
-                    <i class="fas fa-exchange-alt"></i>
-                </button>
-                <div class="language-option" data-source="es" data-target="en">
-                    <span class="flag">🇪🇸</span>
-                    <span>Spanish → English</span>
-                    <span class="flag">🇺🇸</span>
+
+                <div class="translation-workspace">
+                    <div class="input-panel">
+                        <div class="panel-header">
+                            <div class="language-label">
+                                <i class="fas fa-edit"></i>
+                                <span id="source-lang">English</span>
+                            </div>
+                            <div class="panel-actions">
+                                <button class="action-btn clear-btn" onclick="clearText()" title="Clear text">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <button class="action-btn voice-btn" title="Voice input (coming soon)">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <textarea 
+                                id="source-text" 
+                                placeholder="Type or paste your text here to translate..."
+                                maxlength="5000"
+                            ></textarea>
+                            <div class="input-footer">
+                                <div class="char-count">
+                                    <span id="char-counter">0</span> / 5000
+                                </div>
+                                <div class="input-actions">
+                                    <button class="translate-btn" id="translate-btn" onclick="translateText()">
+                                        <i class="fas fa-magic"></i>
+                                        <span>Translate</span>
+                                        <div class="btn-shine"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider-section">
+                        <div class="magic-divider">
+                            <div class="magic-circle">
+                                <i class="fas fa-sparkles"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="output-panel">
+                        <div class="panel-header">
+                            <div class="language-label">
+                                <i class="fas fa-language"></i>
+                                <span id="target-lang">Spanish</span>
+                            </div>
+                            <div class="panel-actions">
+                                <button class="action-btn copy-btn" onclick="copyTranslation()" title="Copy translation">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <button class="action-btn speak-btn" title="Listen to translation (coming soon)">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                                <button class="action-btn share-btn" title="Share translation">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="output-container">
+                            <div id="target-text" class="translation-output">
+                                <div class="placeholder-content">
+                                    <i class="fas fa-magic"></i>
+                                    <p>Your beautiful translation will appear here...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="translation-area">
-                <div class="input-section">
-                    <div class="text-header">
-                        <span id="source-lang">English</span>
-                        <button class="clear-btn" onclick="clearText()" title="Clear text">
-                            <i class="fas fa-times"></i>
-                        </button>
+            <div class="features-showcase">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <textarea 
-                        id="source-text" 
-                        placeholder="Enter text to translate..."
-                        maxlength="5000"
-                    ></textarea>
-                    <div class="char-count">
-                        <span id="char-counter">0</span>/5000
-                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Instant translations powered by advanced AI technology</p>
                 </div>
-
-                <div class="translate-button-container">
-                    <button id="translate-btn" onclick="translateText()">
-                        <i class="fas fa-arrow-right"></i>
-                        Translate
-                    </button>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <h3>Privacy First</h3>
+                    <p>Your conversations stay private with secure encryption</p>
                 </div>
-
-                <div class="output-section">
-                    <div class="text-header">
-                        <span id="target-lang">Spanish</span>
-                        <button class="copy-btn" onclick="copyTranslation()" title="Copy translation">
-                            <i class="fas fa-copy"></i>
-                        </button>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
                     </div>
-                    <div id="target-text" class="translation-output">
-                        Translation will appear here...
-                    </div>
+                    <h3>Made with Love</h3>
+                    <p>Beautifully crafted interface for the best experience</p>
                 </div>
             </div>
 
-            <div class="features">
-                <div class="feature">
-                    <i class="fas fa-bolt"></i>
-                    <span>Instant Translation</span>
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Languages</div>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Secure & Private</span>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Possibilities</div>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span>Mobile Friendly</span>
+                <div class="stat-item">
+                    <div class="stat-number">❤️</div>
+                    <div class="stat-label">User Love</div>
                 </div>
             </div>
         </main>
 
         <footer class="footer">
-            <p>&copy; 2024 Bilingual Translator. Powered by Google Translate API.</p>
-            <p>Created for Academic Assignment - Translation Services</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-globe-americas"></i>
+                    <span>LinguaFlow</span>
+                </div>
+                <div class="footer-text">
+                    <p>Crafted with passion for seamless communication</p>
+                    <p class="academic-note">Academic Project • Translation Excellence</p>
+                </div>
+            </div>
         </footer>
     </div>
 

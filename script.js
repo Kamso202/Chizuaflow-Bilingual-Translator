@@ -74,8 +74,13 @@ class BilingualTranslator {
         // Update display
         this.updateLanguageDisplay();
         
-        // Clear previous translation
-        document.getElementById('target-text').textContent = 'Translation will appear here...';
+        // Clear previous translation and restore placeholder
+        document.getElementById('target-text').innerHTML = `
+            <div class="placeholder-content">
+                <i class="fas fa-magic"></i>
+                <p>Your beautiful translation will appear here...</p>
+            </div>
+        `;
     }
 
     updateLanguageDisplay() {
@@ -142,17 +147,37 @@ class BilingualTranslator {
 
     displayTranslation(translation) {
         const targetTextElement = document.getElementById('target-text');
-        targetTextElement.textContent = translation;
         
-        // Add fade-in animation
-        targetTextElement.style.opacity = '0';
-        targetTextElement.style.transform = 'translateY(10px)';
+        // Remove placeholder content and add actual translation
+        targetTextElement.innerHTML = `<div class="translation-text">${translation}</div>`;
+        
+        // Add fade-in animation with enhanced effects
+        const translationText = targetTextElement.querySelector('.translation-text');
+        translationText.style.opacity = '0';
+        translationText.style.transform = 'translateY(20px) scale(0.95)';
         
         setTimeout(() => {
-            targetTextElement.style.transition = 'all 0.3s ease';
-            targetTextElement.style.opacity = '1';
-            targetTextElement.style.transform = 'translateY(0)';
-        }, 100);
+            translationText.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            translationText.style.opacity = '1';
+            translationText.style.transform = 'translateY(0) scale(1)';
+        }, 150);
+
+        // Add subtle celebration effect
+        this.addCelebrationEffect();
+    }
+
+    addCelebrationEffect() {
+        const magicCircle = document.querySelector('.magic-circle');
+        if (magicCircle) {
+            magicCircle.style.transform = 'scale(1.2)';
+            magicCircle.style.background = 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)';
+            
+            setTimeout(() => {
+                magicCircle.style.transition = 'all 0.4s ease';
+                magicCircle.style.transform = 'scale(1)';
+                magicCircle.style.background = 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)';
+            }, 300);
+        }
     }
 
     showLoading(show) {
@@ -162,11 +187,13 @@ class BilingualTranslator {
         if (show) {
             loadingOverlay.style.display = 'flex';
             translateBtn.disabled = true;
-            translateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Translating...';
+            translateBtn.innerHTML = '<i class="fas fa-sparkles fa-spin"></i><span>Translating...</span>';
+            translateBtn.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
         } else {
             loadingOverlay.style.display = 'none';
             translateBtn.disabled = false;
-            translateBtn.innerHTML = '<i class="fas fa-arrow-right"></i> Translate';
+            translateBtn.innerHTML = '<i class="fas fa-magic"></i><span>Translate</span><div class="btn-shine"></div>';
+            translateBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
         }
     }
 
@@ -266,18 +293,33 @@ function clearText() {
     const targetText = document.getElementById('target-text');
     
     sourceText.value = '';
-    targetText.textContent = 'Translation will appear here...';
+    targetText.innerHTML = `
+        <div class="placeholder-content">
+            <i class="fas fa-magic"></i>
+            <p>Your beautiful translation will appear here...</p>
+        </div>
+    `;
     translator.updateCharacterCount();
     sourceText.focus();
+    
+    // Add subtle clear animation
+    sourceText.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+        sourceText.style.transition = 'transform 0.2s ease';
+        sourceText.style.transform = 'scale(1)';
+    }, 100);
 }
 
 async function copyTranslation() {
-    const targetText = document.getElementById('target-text').textContent;
+    const targetTextElement = document.getElementById('target-text');
+    const translationText = targetTextElement.querySelector('.translation-text');
     
-    if (targetText === 'Translation will appear here...') {
+    if (!translationText) {
         translator.showNotification('No translation to copy', 'warning');
         return;
     }
+    
+    const targetText = translationText.textContent;
 
     try {
         await navigator.clipboard.writeText(targetText);
