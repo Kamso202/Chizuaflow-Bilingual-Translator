@@ -346,15 +346,120 @@ function translateText() {
     translator.translateText();
 }
 
+// Navigation functionality
+function scrollToTranslator() {
+    document.getElementById('translator').scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
+function scrollToFeatures() {
+    document.getElementById('features').scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
+// Mobile menu toggle
+function toggleMobileMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    const hamburger = document.getElementById('hamburger');
+    
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+}
+
+// Smooth scrolling for navigation links
+function initSmoothScrolling() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navMenu = document.getElementById('nav-menu');
+                    navMenu.classList.remove('active');
+                }
+            }
+        });
+    });
+}
+
+// Active navigation highlighting
+function initActiveNav() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -80% 0px',
+        threshold: 0
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const activeId = entry.target.id;
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${activeId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+    
+    sections.forEach(section => observer.observe(section));
+}
+
+// Form submission
+function initContactForm() {
+    const form = document.querySelector('.form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show success message
+            translator.showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
+            
+            // Reset form
+            form.reset();
+        });
+    }
+}
+
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.translator = new BilingualTranslator();
     
-    // Add some helpful keyboard shortcuts info
-    console.log('🌍 Bilingual Translator loaded successfully!');
-    console.log('💡 Tip: Use Ctrl+Enter to translate quickly');
-    console.log('🔄 API: Using MyMemory Translation Service');
-    console.log('📱 Responsive: Mobile-friendly design included');
+    // Initialize navigation features
+    initSmoothScrolling();
+    initActiveNav();
+    initContactForm();
+    
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMobileMenu);
+    }
+    
+    console.log('🌍 LinguaFlow website loaded successfully!');
+    console.log('💡 Features: Full responsive website with smooth navigation');
+    console.log('🔄 API: MyMemory Translation Service integrated');
+    console.log('📱 Mobile: Hamburger menu and touch-optimized design');
+    console.log('🎨 Design: Vibrant colors and modern UI/UX');
 });
 
 // Service Worker registration for offline capability (optional enhancement)

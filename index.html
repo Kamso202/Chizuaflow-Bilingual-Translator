@@ -3,12 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LinguaFlow - Beautiful Translation Experience</title>
+    <title>LinguaFlow - Professional Translation Services | English ⇄ Spanish</title>
+    <meta name="description" content="Professional English to Spanish translation services with beautiful, modern interface. Fast, accurate, and secure translations for all your needs.">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-logo">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <span class="brand-name">LinguaFlow</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#translator" class="nav-link">Translator</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="cta-button" onclick="scrollToTranslator()">
+                    <i class="fas fa-language"></i>
+                    Start Translating
+                </button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
     <!-- Animated Background -->
     <div class="animated-bg">
         <div class="floating-shapes">
@@ -17,26 +46,93 @@
             <div class="shape shape-3"></div>
             <div class="shape shape-4"></div>
             <div class="shape shape-5"></div>
+            <div class="shape shape-6"></div>
+            <div class="shape shape-7"></div>
         </div>
     </div>
-
-    <div class="container">
-        <header class="header">
-            <div class="logo-section">
-                <div class="logo-icon">
-                    <i class="fas fa-globe-americas"></i>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Professional Translation Services</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Break Language <span class="gradient-text">Barriers</span> with 
+                        <span class="gradient-text">Beautiful</span> Translations
+                    </h1>
+                    <p class="hero-description">
+                        Experience the future of translation with our stunning, AI-powered platform. 
+                        Seamlessly translate between English and Spanish with professional accuracy 
+                        and elegant design that makes communication effortless.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="scrollToTranslator()">
+                            <i class="fas fa-magic"></i>
+                            Start Translating Now
+                        </button>
+                        <button class="btn-secondary" onclick="scrollToFeatures()">
+                            <i class="fas fa-play"></i>
+                            Learn More
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">99.9%</div>
+                            <div class="stat-text">Accuracy</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">500K+</div>
+                            <div class="stat-text">Translations</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-text">Available</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="brand-text">
-                    <h1>LinguaFlow</h1>
-                    <p class="tagline">Where languages meet beauty</p>
+                <div class="hero-visual">
+                    <div class="translation-preview">
+                        <div class="preview-card input-preview">
+                            <div class="preview-header">
+                                <span class="flag">🇺🇸</span>
+                                <span>English</span>
+                            </div>
+                            <div class="preview-text">Hello, how are you today?</div>
+                        </div>
+                        <div class="translation-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="preview-card output-preview">
+                            <div class="preview-header">
+                                <span class="flag">🇪🇸</span>
+                                <span>Spanish</span>
+                            </div>
+                            <div class="preview-text">¡Hola, ¿cómo estás hoy?</div>
+                        </div>
+                    </div>
+                    <div class="floating-elements">
+                        <div class="float-element element-1">💬</div>
+                        <div class="float-element element-2">🌍</div>
+                        <div class="float-element element-3">✨</div>
+                        <div class="float-element element-4">🚀</div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-subtitle">
-                Transform your words across cultures with elegant precision
-            </div>
-        </header>
+        </div>
+    </section>
 
-        <main class="translator-container">
+    <!-- Translator Section -->
+    <section id="translator" class="translator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Translation Tool</h2>
+                <p class="section-subtitle">
+                    Translate with confidence using our advanced AI-powered system
+                </p>
+            </div>
             <div class="translation-card">
                 <div class="card-header">
                     <div class="language-selector">
@@ -148,59 +244,272 @@
                 </div>
             </div>
 
-            <div class="features-showcase">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose LinguaFlow?</h2>
+                <p class="section-subtitle">
+                    Discover the features that make us the premier choice for translation services
+                </p>
+            </div>
+            <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
+                    <div class="feature-icon lightning">
                         <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Lightning Fast</h3>
-                    <p>Instant translations powered by advanced AI technology</p>
+                    <p>Get instant translations in milliseconds with our optimized AI engine. No waiting, just immediate results that keep your conversations flowing.</p>
+                    <div class="feature-highlight">99.9% Uptime</div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
+                    <div class="feature-icon security">
                         <i class="fas fa-shield-check"></i>
                     </div>
                     <h3>Privacy First</h3>
-                    <p>Your conversations stay private with secure encryption</p>
+                    <p>Your data security is our priority. All translations are processed securely with end-to-end encryption and zero data retention.</p>
+                    <div class="feature-highlight">Enterprise Grade</div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
+                    <div class="feature-icon design">
+                        <i class="fas fa-palette"></i>
                     </div>
-                    <h3>Made with Love</h3>
-                    <p>Beautifully crafted interface for the best experience</p>
+                    <h3>Beautiful Design</h3>
+                    <p>Experience translation through a stunning, intuitive interface designed for both beginners and professionals.</p>
+                    <div class="feature-highlight">Award Winning</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon accuracy">
+                        <i class="fas fa-target"></i>
+                    </div>
+                    <h3>99.9% Accuracy</h3>
+                    <p>Powered by advanced neural networks trained on millions of translation pairs for unmatched precision and context awareness.</p>
+                    <div class="feature-highlight">AI Powered</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon mobile">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Optimized</h3>
+                    <p>Perfect experience across all devices with responsive design that adapts beautifully to your screen size.</p>
+                    <div class="feature-highlight">Cross Platform</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon support">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Get help whenever you need it with our dedicated support team available around the clock for all your questions.</p>
+                    <div class="feature-highlight">Always Available</div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="stats-section">
-                <div class="stat-item">
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">Languages</div>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Bridging Cultures Through Technology</h2>
+                    <p class="about-description">
+                        LinguaFlow was born from a simple belief: language should never be a barrier to human connection. 
+                        Our team of linguists, designers, and engineers work tirelessly to create the most beautiful and 
+                        accurate translation experience possible.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-globe-americas"></i>
+                            <div>
+                                <h4>Global Reach</h4>
+                                <p>Connecting people across continents with seamless translation</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-brain"></i>
+                            <div>
+                                <h4>AI Innovation</h4>
+                                <p>Cutting-edge neural networks for context-aware translations</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>User Focused</h4>
+                                <p>Every feature designed with user experience at the forefront</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Possibilities</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">❤️</div>
-                    <div class="stat-label">User Love</div>
+                <div class="about-visual">
+                    <div class="stats-showcase">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Languages Supported</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Possibilities Unlocked</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">User Satisfaction</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </main>
+        </div>
+    </section>
 
-        <footer class="footer">
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">
+                    Have questions or feedback? We'd love to hear from you!
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Us</h4>
+                        <p>hello@linguaflow.com</p>
+                        <p>support@linguaflow.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Call Us</h4>
+                        <p>+1 (555) 123-4567</p>
+                        <p>Available 24/7</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Visit Us</h4>
+                        <p>123 Translation Street</p>
+                        <p>Language City, LC 12345</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form class="form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="feature">Feature Request</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <i class="fas fa-globe-americas"></i>
-                    <span>LinguaFlow</span>
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <i class="fas fa-globe-americas"></i>
+                            <span class="brand-name">LinguaFlow</span>
+                        </div>
+                        <p class="footer-description">
+                            Breaking language barriers with beautiful, AI-powered translation technology. 
+                            Connect with the world through seamless communication.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <div class="link-group">
+                            <h4>Product</h4>
+                            <a href="#translator">Translator</a>
+                            <a href="#features">Features</a>
+                            <a href="#pricing">Pricing</a>
+                            <a href="#api">API Access</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Company</h4>
+                            <a href="#about">About Us</a>
+                            <a href="#careers">Careers</a>
+                            <a href="#press">Press</a>
+                            <a href="#contact">Contact</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Support</h4>
+                            <a href="#help">Help Center</a>
+                            <a href="#docs">Documentation</a>
+                            <a href="#status">System Status</a>
+                            <a href="#feedback">Feedback</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Legal</h4>
+                            <a href="#privacy">Privacy Policy</a>
+                            <a href="#terms">Terms of Service</a>
+                            <a href="#cookies">Cookie Policy</a>
+                            <a href="#gdpr">GDPR</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-text">
-                    <p>Crafted with passion for seamless communication</p>
-                    <p class="academic-note">Academic Project • Translation Excellence</p>
+                <div class="footer-bottom">
+                    <div class="footer-copy">
+                        <p>&copy; 2024 LinguaFlow. All rights reserved.</p>
+                        <p class="academic-note">Academic Project • Educational Excellence</p>
+                    </div>
+                    <div class="footer-badges">
+                        <span class="badge">🎓 Academic Project</span>
+                        <span class="badge">🔒 Secure</span>
+                        <span class="badge">⚡ Fast</span>
+                        <span class="badge">💯 Accurate</span>
+                    </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
     <div id="loading" class="loading-overlay">
         <div class="spinner"></div>
