@@ -17,13 +17,6 @@ class BilingualTranslator {
     }
 
     setupEventListeners() {
-        // Language selection
-        document.querySelectorAll('.language-option').forEach(option => {
-            option.addEventListener('click', (e) => {
-                this.selectLanguagePair(e.currentTarget);
-            });
-        });
-
         // Real-time character counting
         const sourceText = document.getElementById('source-text');
         sourceText.addEventListener('input', () => {
@@ -34,6 +27,18 @@ class BilingualTranslator {
         sourceText.addEventListener('keydown', (e) => {
             if (e.ctrlKey && e.key === 'Enter') {
                 this.translateText();
+            }
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.custom-dropdown')) {
+                document.querySelectorAll('.dropdown-options').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+                document.querySelectorAll('.dropdown-selected').forEach(selected => {
+                    selected.classList.remove('active');
+                });
             }
         });
     }
@@ -58,18 +63,10 @@ class BilingualTranslator {
         }
     }
 
-    selectLanguagePair(selectedOption) {
-        // Remove active class from all options
-        document.querySelectorAll('.language-option').forEach(option => {
-            option.classList.remove('active');
-        });
-
-        // Add active class to selected option
-        selectedOption.classList.add('active');
-
+    selectLanguagePair(source, target) {
         // Update current language pair
-        this.currentSourceLang = selectedOption.dataset.source;
-        this.currentTargetLang = selectedOption.dataset.target;
+        this.currentSourceLang = source;
+        this.currentTargetLang = target;
 
         // Update display
         this.updateLanguageDisplay();
@@ -264,27 +261,104 @@ class BilingualTranslator {
     }
 }
 
+// Dropdown Functions
+function toggleDropdown(type) {
+    const dropdown = document.getElementById(`${type}-options`);
+    const selected = document.querySelector(`#${type}-dropdown .dropdown-selected`);
+    
+    // Close other dropdowns
+    document.querySelectorAll('.dropdown-options').forEach(d => {
+        if (d !== dropdown) {
+            d.classList.remove('active');
+        }
+    });
+    document.querySelectorAll('.dropdown-selected').forEach(s => {
+        if (s !== selected) {
+            s.classList.remove('active');
+        }
+    });
+    
+    // Toggle current dropdown
+    dropdown.classList.toggle('active');
+    selected.classList.toggle('active');
+}
+
+function selectLanguage(type, langCode, flag, name) {
+    const selected = document.querySelector(`#${type}-dropdown .dropdown-selected`);
+    const dropdown = document.getElementById(`${type}-options`);
+    
+    // Update selected display
+    selected.querySelector('.flag').textContent = flag;
+    selected.querySelector('.language-name').textContent = name;
+    
+    // Update active state in dropdown
+    dropdown.querySelectorAll('.dropdown-option').forEach(option => {
+        option.classList.remove('active');
+        if (option.dataset.lang === langCode) {
+            option.classList.add('active');
+        }
+    });
+    
+    // Close dropdown
+    dropdown.classList.remove('active');
+    selected.classList.remove('active');
+    
+    // Update translator
+    if (type === 'source') {
+        translator.selectLanguagePair(langCode, translator.currentTargetLang);
+    } else {
+        translator.selectLanguagePair(translator.currentSourceLang, langCode);
+    }
+}
+
 // Utility Functions
 function swapLanguages() {
-    const languageOptions = document.querySelectorAll('.language-option');
-    const activeOption = document.querySelector('.language-option.active');
+    const sourceDropdown = document.getElementById('source-dropdown');
+    const targetDropdown = document.getElementById('target-dropdown');
     
-    // Find the other option
-    const otherOption = Array.from(languageOptions).find(option => option !== activeOption);
+    const sourceFlag = sourceDropdown.querySelector('.dropdown-selected .flag').textContent;
+    const sourceName = sourceDropdown.querySelector('.dropdown-selected .language-name').textContent;
+    const targetFlag = targetDropdown.querySelector('.dropdown-selected .flag').textContent;
+    const targetName = targetDropdown.querySelector('.dropdown-selected .language-name').textContent;
     
-    if (otherOption) {
-        translator.selectLanguagePair(otherOption);
-        
-        // Swap text content if both fields have content
-        const sourceText = document.getElementById('source-text');
-        const targetText = document.getElementById('target-text');
-        
-        if (sourceText.value.trim() && targetText.textContent !== 'Translation will appear here...') {
-            const tempText = sourceText.value;
-            sourceText.value = targetText.textContent;
-            targetText.textContent = tempText;
-            translator.updateCharacterCount();
+    // Swap the dropdowns
+    sourceDropdown.querySelector('.dropdown-selected .flag').textContent = targetFlag;
+    sourceDropdown.querySelector('.dropdown-selected .language-name').textContent = targetName;
+    targetDropdown.querySelector('.dropdown-selected .flag').textContent = sourceFlag;
+    targetDropdown.querySelector('.dropdown-selected .language-name').textContent = sourceName;
+    
+    // Update active states
+    const sourceLang = sourceName === 'English' ? 'en' : 'es';
+    const targetLang = targetName === 'English' ? 'en' : 'es';
+    
+    // Update dropdown options active states
+    document.querySelectorAll('#source-options .dropdown-option').forEach(option => {
+        option.classList.remove('active');
+        if (option.dataset.lang === targetLang) {
+            option.classList.add('active');
         }
+    });
+    
+    document.querySelectorAll('#target-options .dropdown-option').forEach(option => {
+        option.classList.remove('active');
+        if (option.dataset.lang === sourceLang) {
+            option.classList.add('active');
+        }
+    });
+    
+    // Update translator
+    translator.selectLanguagePair(targetLang, sourceLang);
+    
+    // Swap text content if both fields have content
+    const sourceText = document.getElementById('source-text');
+    const targetTextElement = document.getElementById('target-text');
+    const translationText = targetTextElement.querySelector('.translation-text');
+    
+    if (sourceText.value.trim() && translationText) {
+        const tempText = sourceText.value;
+        sourceText.value = translationText.textContent;
+        targetTextElement.innerHTML = `<div class="translation-text">${tempText}</div>`;
+        translator.updateCharacterCount();
     }
 }
 
