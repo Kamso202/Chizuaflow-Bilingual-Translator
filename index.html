@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilingual Translator - English ⇄ Spanish</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-language"></i> Bilingual Translator</h1>
+            <p class="subtitle">Professional English ⇄ Spanish Translation Service</p>
+        </header>
+
+        <main class="translator-container">
+            <div class="language-selector">
+                <div class="language-option active" data-source="en" data-target="es">
+                    <span class="flag">🇺🇸</span>
+                    <span>English → Spanish</span>
+                    <span class="flag">🇪🇸</span>
+                </div>
+                <button class="swap-btn" onclick="swapLanguages()">
+                    <i class="fas fa-exchange-alt"></i>
+                </button>
+                <div class="language-option" data-source="es" data-target="en">
+                    <span class="flag">🇪🇸</span>
+                    <span>Spanish → English</span>
+                    <span class="flag">🇺🇸</span>
+                </div>
+            </div>
+
+            <div class="translation-area">
+                <div class="input-section">
+                    <div class="text-header">
+                        <span id="source-lang">English</span>
+                        <button class="clear-btn" onclick="clearText()" title="Clear text">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <textarea 
+                        id="source-text" 
+                        placeholder="Enter text to translate..."
+                        maxlength="5000"
+                    ></textarea>
+                    <div class="char-count">
+                        <span id="char-counter">0</span>/5000
+                    </div>
+                </div>
+
+                <div class="translate-button-container">
+                    <button id="translate-btn" onclick="translateText()">
+                        <i class="fas fa-arrow-right"></i>
+                        Translate
+                    </button>
+                </div>
+
+                <div class="output-section">
+                    <div class="text-header">
+                        <span id="target-lang">Spanish</span>
+                        <button class="copy-btn" onclick="copyTranslation()" title="Copy translation">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <div id="target-text" class="translation-output">
+                        Translation will appear here...
+                    </div>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Instant Translation</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure & Private</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Friendly</span>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Bilingual Translator. Powered by Google Translate API.</p>
+            <p>Created for Academic Assignment - Translation Services</p>
+        </footer>
+    </div>
+
+    <div id="loading" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Translating...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
