@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Results - UNIZIK Blockchain Voting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</a>
+            <a href="vote.html">Vote</a>
+            <a href="results.html" class="active">Results</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+        
+        <h1>📊 Election Results</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">
+            Real-time election results with blockchain-verified transparency
+        </p>
+        
+        <div id="electionStateDisplay">Loading election state...</div>
+        
+        <div style="background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%); padding: 25px; border-radius: 15px; margin: 20px 0;">
+            <h2>📈 Live Results</h2>
+            <p>Results are automatically updated every 5 seconds. All data is verified on the blockchain.</p>
+            <button id="refreshResultsBtn" style="background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);">🔄 Refresh Results</button>
+        </div>
+        
+        <div id="resultsContainer">
+            <ul id="resultsList" class="results-list">
+                <li style="text-align: center; padding: 40px; color: #666;">
+                    <div class="loading"></div>
+                    <p>Loading results...</p>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="noResultsMessage" style="display: none; text-align: center; padding: 40px; color: #666;">
+            <h2>📋 No Results Available</h2>
+            <p>Results will be displayed here once the election has ended and votes have been cast.</p>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 25px; border-radius: 15px; margin: 30px 0;">
+            <h2>🔍 Result Verification</h2>
+            <p>All election results are stored on the blockchain, ensuring:</p>
+            <ul style="line-height: 2;">
+                <li><strong>Immutability:</strong> Results cannot be altered once recorded</li>
+                <li><strong>Transparency:</strong> Anyone can verify the results independently</li>
+                <li><strong>Auditability:</strong> Complete voting history is preserved</li>
+                <li><strong>Real-time Updates:</strong> Results update automatically as votes are cast</li>
+                <li><strong>Decentralized Storage:</strong> No single point of failure</li>
+            </ul>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); padding: 25px; border-radius: 15px; margin: 30px 0; border-left: 4px solid #ffc107;">
+            <h2>ℹ️ Election States</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+                <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.5); border-radius: 8px;">
+                    <div class="status-indicator status-registering"></div>
+                    <strong>Registration Phase</strong>
+                    <p>Voters can register their wallets</p>
+                </div>
+                <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.5); border-radius: 8px;">
+                    <div class="status-indicator status-voting"></div>
+                    <strong>Voting Active</strong>
+                    <p>Registered voters can cast votes</p>
+                </div>
+                <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.5); border-radius: 8px;">
+                    <div class="status-indicator status-ended"></div>
+                    <strong>Election Ended</strong>
+                    <p>Final results are available</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="message" class="message" style="display: none;"></div>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>

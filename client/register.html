@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register to Vote - UNIZIK Blockchain Voting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="register.html" class="active">Register</a>
+            <a href="vote.html">Vote</a>
+            <a href="results.html">Results</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+        
+        <h1>📝 Register to Vote</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">
+            Verify your student identity and link your wallet to participate in the election
+        </p>
+        
+        <div style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #ffc107;">
+            <h3>ℹ️ Important Information</h3>
+            <p><strong>Available Student IDs for Testing:</strong></p>
+            <ul style="font-family: 'Courier New', monospace; background: rgba(255,255,255,0.5); padding: 15px; border-radius: 5px;">
+                <li>UNIZIK/2020/001</li>
+                <li>UNIZIK/2020/002</li>
+                <li>UNIZIK/2020/003</li>
+                <li>UNIZIK/2020/004</li>
+                <li>UNIZIK/2020/005</li>
+            </ul>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 25px; border-radius: 15px; margin: 30px 0;">
+            <h2>Step 1: Verify Your Student ID</h2>
+            <label for="studentIdInput">Student ID:</label>
+            <input type="text" id="studentIdInput" placeholder="Enter your Student ID (e.g., UNIZIK/2020/001)">
+            <button id="verifyStudentBtn">🔍 Verify Student ID</button>
+        </div>
+        
+        <div id="walletAddressDisplay">Wallet not connected</div>
+        
+        <div id="registrationSection" style="display: none; background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); padding: 25px; border-radius: 15px; margin: 30px 0;">
+            <h2>Step 2: Link Your Wallet</h2>
+            <p>Your student ID has been verified. Now connect your MetaMask wallet to complete registration.</p>
+            <button id="registerWalletBtn">🔗 Link Wallet to Student ID</button>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%); padding: 25px; border-radius: 15px; margin: 30px 0;">
+            <h2>📋 Registration Process</h2>
+            <ol style="line-height: 2;">
+                <li><strong>Student ID Verification:</strong> Enter your valid student ID to verify eligibility</li>
+                <li><strong>Wallet Connection:</strong> Connect your MetaMask wallet to the system</li>
+                <li><strong>Blockchain Registration:</strong> Your wallet address is registered on the blockchain</li>
+                <li><strong>Ready to Vote:</strong> Once registered, you can participate in elections</li>
+            </ol>
+        </div>
+        
+        <div id="message" class="message" style="display: none;"></div>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
