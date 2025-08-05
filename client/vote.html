@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cast Your Vote - UNIZIK Blockchain Voting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</a>
+            <a href="vote.html" class="active">Vote</a>
+            <a href="results.html">Results</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+        
+        <h1>🗳️ Cast Your Vote</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">
+            Exercise your democratic right to vote for your preferred candidate
+        </p>
+        
+        <div id="voterStatus">Checking voter status...</div>
+        
+        <div id="candidatesSection" style="display: none;">
+            <div style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                <h2>🏆 Available Candidates</h2>
+                <p>Select your preferred candidate by clicking the "Vote" button next to their name.</p>
+                <p><strong>Note:</strong> You can only vote once. Your vote is final and cannot be changed.</p>
+            </div>
+            
+            <ul id="candidateList" class="candidate-list">
+                <!-- Candidates will be loaded here dynamically -->
+            </ul>
+        </div>
+        
+        <div id="notEligible" style="display: none;">
+            <div style="background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%); padding: 25px; border-radius: 15px; margin: 20px 0; border-left: 4px solid #dc3545;">
+                <h2>❌ Not Eligible to Vote</h2>
+                <p>You are not eligible to vote for the following reasons:</p>
+                <ul id="eligibilityReasons" style="margin: 15px 0;">
+                    <!-- Reasons will be populated dynamically -->
+                </ul>
+                <p><strong>To become eligible:</strong></p>
+                <ol>
+                    <li>Ensure your MetaMask wallet is connected</li>
+                    <li>Register your student ID on the <a href="register.html" style="color: #dc3545; font-weight: bold;">Registration page</a></li>
+                    <li>Wait for the voting phase to begin (admin must start voting)</li>
+                    <li>Make sure you haven't already voted</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%); padding: 25px; border-radius: 15px; margin: 30px 0;">
+            <h2>🔒 Voting Security</h2>
+            <ul style="line-height: 2;">
+                <li><strong>One Vote Per Person:</strong> Each registered wallet can only vote once</li>
+                <li><strong>Immutable Records:</strong> All votes are permanently recorded on the blockchain</li>
+                <li><strong>Transparent Process:</strong> Vote counts are publicly verifiable</li>
+                <li><strong>No Double Voting:</strong> Smart contract prevents duplicate votes</li>
+                <li><strong>Real-time Verification:</strong> Vote status is checked in real-time</li>
+            </ul>
+        </div>
+        
+        <div id="message" class="message" style="display: none;"></div>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
