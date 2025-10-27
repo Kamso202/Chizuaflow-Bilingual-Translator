@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChizuaFlow - Professional Translation Services by Chizua | English ⇄ Spanish</title>
+    <meta name="description" content="Professional English to Spanish translation services by Chizua. Beautiful, modern interface with fast, accurate, and secure translations for all your needs.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-logo">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <span class="brand-name">ChizuaFlow</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#translator" class="nav-link">Translator</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#design" class="nav-link">Design System</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="cta-button" onclick="scrollToTranslator()">
+                    <i class="fas fa-language"></i>
+                    Start Translating
+                </button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+            <div class="shape shape-6"></div>
+            <div class="shape shape-7"></div>
+        </div>
+    </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Professional Translation Services</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Break Language <span class="gradient-text">Barriers</span> with 
+                        <span class="gradient-text">Chizua's</span> Professional Translations
+                    </h1>
+                    <p class="hero-description">
+                        Welcome to ChizuaFlow - where language meets innovation. I'm Chizua, and I've created 
+                        this stunning, AI-powered translation platform to help you communicate seamlessly 
+                        between English and Spanish with professional accuracy and elegant design.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="scrollToTranslator()">
+                            <i class="fas fa-magic"></i>
+                            Start Translating Now
+                        </button>
+                        <button class="btn-secondary" onclick="scrollToFeatures()">
+                            <i class="fas fa-play"></i>
+                            Learn More
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">99.9%</div>
+                            <div class="stat-text">Accuracy</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">500K+</div>
+                            <div class="stat-text">Translations</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-text">Available</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="translation-preview">
+                        <div class="preview-card input-preview">
+                            <div class="preview-header">
+                                <span class="flag">🇺🇸</span>
+                                <span>English</span>
+                            </div>
+                            <div class="preview-text">Hello, how are you today?</div>
+                        </div>
+                        <div class="translation-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="preview-card output-preview">
+                            <div class="preview-header">
+                                <span class="flag">🇪🇸</span>
+                                <span>Spanish</span>
+                            </div>
+                            <div class="preview-text">¡Hola, ¿cómo estás hoy?</div>
+                        </div>
+                    </div>
+                    <div class="floating-elements">
+                        <div class="float-element element-1">💬</div>
+                        <div class="float-element element-2">🌍</div>
+                        <div class="float-element element-3">✨</div>
+                        <div class="float-element element-4">🚀</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Translator Section -->
+    <section id="translator" class="translator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Translation Tool</h2>
+                <p class="section-subtitle">
+                    Translate with confidence using our advanced AI-powered system
+                </p>
+            </div>
+            <div class="translation-card">
+                <div class="card-header">
+                    <div class="language-selector-new">
+                        <div class="language-dropdown-container">
+                            <label class="dropdown-label">From</label>
+                            <div class="custom-dropdown" id="source-dropdown">
+                                <div class="dropdown-selected" onclick="toggleDropdown('source')">
+                                    <span class="flag">🇺🇸</span>
+                                    <span class="language-name">English</span>
+                                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                </div>
+                                <div class="dropdown-options" id="source-options">
+                                    <div class="dropdown-option active" data-lang="en" onclick="selectLanguage('source', 'en', '🇺🇸', 'English')">
+                                        <span class="flag">🇺🇸</span>
+                                        <span class="language-name">English</span>
+                                    </div>
+                                    <div class="dropdown-option" data-lang="es" onclick="selectLanguage('source', 'es', '🇪🇸', 'Spanish')">
+                                        <span class="flag">🇪🇸</span>
+                                        <span class="language-name">Spanish</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="modern-swap-btn" onclick="swapLanguages()" title="Swap Languages">
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+
+                        <div class="language-dropdown-container">
+                            <label class="dropdown-label">To</label>
+                            <div class="custom-dropdown" id="target-dropdown">
+                                <div class="dropdown-selected" onclick="toggleDropdown('target')">
+                                    <span class="flag">🇪🇸</span>
+                                    <span class="language-name">Spanish</span>
+                                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                </div>
+                                <div class="dropdown-options" id="target-options">
+                                    <div class="dropdown-option" data-lang="en" onclick="selectLanguage('target', 'en', '🇺🇸', 'English')">
+                                        <span class="flag">🇺🇸</span>
+                                        <span class="language-name">English</span>
+                                    </div>
+                                    <div class="dropdown-option active" data-lang="es" onclick="selectLanguage('target', 'es', '🇪🇸', 'Spanish')">
+                                        <span class="flag">🇪🇸</span>
+                                        <span class="language-name">Spanish</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="translation-workspace">
+                    <div class="input-panel">
+                        <div class="panel-header">
+                            <div class="language-label">
+                                <i class="fas fa-edit"></i>
+                                <span id="source-lang">English</span>
+                            </div>
+                            <div class="panel-actions">
+                                <button class="action-btn clear-btn" onclick="clearText()" title="Clear text">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <button class="action-btn voice-btn" title="Voice input (coming soon)">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <textarea 
+                                id="source-text" 
+                                placeholder="Type or paste your text here to translate..."
+                                maxlength="5000"
+                            ></textarea>
+                            <div class="input-footer">
+                                <div class="char-count">
+                                    <span id="char-counter">0</span> / 5000
+                                </div>
+                                <div class="input-actions">
+                                    <button class="translate-btn" id="translate-btn" onclick="translateText()">
+                                        <i class="fas fa-magic"></i>
+                                        <span>Translate</span>
+                                        <div class="btn-shine"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider-section">
+                        <div class="magic-divider">
+                            <div class="magic-circle">
+                                <i class="fas fa-sparkles"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="output-panel">
+                        <div class="panel-header">
+                            <div class="language-label">
+                                <i class="fas fa-language"></i>
+                                <span id="target-lang">Spanish</span>
+                            </div>
+                            <div class="panel-actions">
+                                <button class="action-btn copy-btn" onclick="copyTranslation()" title="Copy translation">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <button class="action-btn speak-btn" title="Listen to translation (coming soon)">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                                <button class="action-btn share-btn" title="Share translation">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="output-container">
+                            <div id="target-text" class="translation-output">
+                                <div class="placeholder-content">
+                                    <i class="fas fa-magic"></i>
+                                    <p>Your beautiful translation will appear here...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose ChizuaFlow?</h2>
+                <p class="section-subtitle">
+                    Discover the innovative features that make ChizuaFlow the premier choice for professional translation services, 
+                    crafted with passion for seamless cross-cultural communication
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon lightning">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Get instant translations in milliseconds with our optimized AI engine. No waiting, just immediate results that keep your conversations flowing.</p>
+                    <div class="feature-highlight">99.9% Uptime</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon security">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <h3>Privacy First</h3>
+                    <p>Your data security is our priority. All translations are processed securely with end-to-end encryption and zero data retention.</p>
+                    <div class="feature-highlight">Enterprise Grade</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon design">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Beautiful Design</h3>
+                    <p>Experience translation through a stunning, intuitive interface designed for both beginners and professionals.</p>
+                    <div class="feature-highlight">Award Winning</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon accuracy">
+                        <i class="fas fa-target"></i>
+                    </div>
+                    <h3>99.9% Accuracy</h3>
+                    <p>Powered by advanced neural networks trained on millions of translation pairs for unmatched precision and context awareness.</p>
+                    <div class="feature-highlight">AI Powered</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon mobile">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Optimized</h3>
+                    <p>Perfect experience across all devices with responsive design that adapts beautifully to your screen size.</p>
+                    <div class="feature-highlight">Cross Platform</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon support">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Get help whenever you need it with our dedicated support team available around the clock for all your questions.</p>
+                    <div class="feature-highlight">Always Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design System Section -->
+    <section id="design" class="design-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Design System & UI/UX</h2>
+                <p class="section-subtitle">
+                    A comprehensive look at the design principles, color theory, and user interface elements 
+                    that make ChizuaFlow both beautiful and functional, inspired by modern design tools like Figma
+                </p>
+            </div>
+            
+            <div class="design-showcase">
+                <!-- Color Palette -->
+                <div class="design-card">
+                    <h3 class="design-card-title">
+                        <i class="fas fa-palette"></i>
+                        Color Palette
+                    </h3>
+                    <div class="color-grid">
+                        <div class="color-swatch primary">
+                            <div class="color-circle" style="background: var(--primary-purple);"></div>
+                            <div class="color-info">
+                                <span class="color-name">Primary Purple</span>
+                                <span class="color-code">#6366f1</span>
+                            </div>
+                        </div>
+                        <div class="color-swatch accent">
+                            <div class="color-circle" style="background: var(--primary-blue);"></div>
+                            <div class="color-info">
+                                <span class="color-name">Ocean Blue</span>
+                                <span class="color-code">#3b82f6</span>
+                            </div>
+                        </div>
+                        <div class="color-swatch secondary">
+                            <div class="color-circle" style="background: var(--primary-pink);"></div>
+                            <div class="color-info">
+                                <span class="color-name">Hot Pink</span>
+                                <span class="color-code">#ec4899</span>
+                            </div>
+                        </div>
+                        <div class="color-swatch success">
+                            <div class="color-circle" style="background: var(--primary-green);"></div>
+                            <div class="color-info">
+                                <span class="color-name">Emerald Green</span>
+                                <span class="color-code">#10b981</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typography -->
+                <div class="design-card">
+                    <h3 class="design-card-title">
+                        <i class="fas fa-font"></i>
+                        Typography System
+                    </h3>
+                    <div class="typography-showcase">
+                        <div class="typography-sample">
+                            <h1 class="sample-heading">Poppins Bold</h1>
+                            <p class="sample-description">Used for main headings and titles</p>
+                        </div>
+                        <div class="typography-sample">
+                            <h2 class="sample-subheading">Inter Medium</h2>
+                            <p class="sample-description">For subheadings and important text</p>
+                        </div>
+                        <div class="typography-sample">
+                            <p class="sample-body">Inter Regular for body text and descriptions</p>
+                            <p class="sample-description">Clean, readable, and accessible</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Component Library -->
+                <div class="design-card full-width">
+                    <h3 class="design-card-title">
+                        <i class="fas fa-cubes"></i>
+                        Component Library
+                    </h3>
+                    <div class="component-grid">
+                        <div class="component-demo">
+                            <h4>Buttons</h4>
+                            <div class="button-showcase">
+                                <button class="demo-btn primary">Primary Button</button>
+                                <button class="demo-btn secondary">Secondary Button</button>
+                                <button class="demo-btn ghost">Ghost Button</button>
+                            </div>
+                        </div>
+                        
+                        <div class="component-demo">
+                            <h4>Cards</h4>
+                            <div class="demo-card">
+                                <div class="demo-card-header">
+                                    <i class="fas fa-star"></i>
+                                    <span>Demo Card</span>
+                                </div>
+                                <div class="demo-card-content">
+                                    <p>Card with shadow and hover effects</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="component-demo">
+                            <h4>Form Elements</h4>
+                            <div class="form-demo">
+                                <input type="text" placeholder="Input field" class="demo-input">
+                                <select class="demo-select">
+                                    <option>Select option</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="component-demo">
+                            <h4>Icons & Graphics</h4>
+                            <div class="icon-showcase">
+                                <i class="fas fa-globe-americas demo-icon"></i>
+                                <i class="fas fa-language demo-icon"></i>
+                                <i class="fas fa-magic demo-icon"></i>
+                                <i class="fas fa-heart demo-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spacing & Layout -->
+                <div class="design-card">
+                    <h3 class="design-card-title">
+                        <i class="fas fa-ruler"></i>
+                        Spacing System
+                    </h3>
+                    <div class="spacing-demo">
+                        <div class="spacing-item">
+                            <div class="spacing-box xs"></div>
+                            <span>XS - 0.75rem</span>
+                        </div>
+                        <div class="spacing-item">
+                            <div class="spacing-box sm"></div>
+                            <span>SM - 1.25rem</span>
+                        </div>
+                        <div class="spacing-item">
+                            <div class="spacing-box md"></div>
+                            <span>MD - 2rem</span>
+                        </div>
+                        <div class="spacing-item">
+                            <div class="spacing-box lg"></div>
+                            <span>LG - 3rem</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Figma Integration -->
+                <div class="design-card">
+                    <h3 class="design-card-title">
+                        <i class="fab fa-figma"></i>
+                        Figma-Inspired Design
+                    </h3>
+                    <div class="figma-showcase">
+                        <div class="figma-feature">
+                            <i class="fas fa-layer-group"></i>
+                            <div>
+                                <h4>Component System</h4>
+                                <p>Reusable design components for consistency</p>
+                            </div>
+                        </div>
+                        <div class="figma-feature">
+                            <i class="fas fa-vector-square"></i>
+                            <div>
+                                <h4>Auto Layout</h4>
+                                <p>Responsive design with flexible layouts</p>
+                            </div>
+                        </div>
+                        <div class="figma-feature">
+                            <i class="fas fa-paint-brush"></i>
+                            <div>
+                                <h4>Design Tokens</h4>
+                                <p>Consistent styling across all elements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                                    <h2 class="section-title">Meet Chizua - Bridging Cultures Through Innovation</h2>
+                <p class="about-description">
+                    Hi! I'm Chizua, a passionate Computer Science student at UNIZIK (University of Nigeria, Nsukka). 
+                    ChizuaFlow was born from my belief that language should never be a barrier to human connection. 
+                    As a developer and language enthusiast, I've crafted this platform to showcase the beauty of 
+                    seamless translation technology while demonstrating my skills in modern web development.
+                </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-globe-americas"></i>
+                            <div>
+                                <h4>Global Reach</h4>
+                                <p>Connecting people across continents with seamless translation</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-brain"></i>
+                            <div>
+                                <h4>AI Innovation</h4>
+                                <p>Cutting-edge neural networks for context-aware translations</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>User Focused</h4>
+                                <p>Every feature designed with user experience at the forefront</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="stats-showcase">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Languages Supported</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Possibilities Unlocked</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">User Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">
+                    Have questions or feedback? We'd love to hear from you!
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Me</h4>
+                        <p>cl.ibenta@stu.unizik.edu.ng</p>
+                        <p>Professional & Academic Inquiries</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Call Me</h4>
+                        <p>+234 816 359 9253</p>
+                        <p>Business Hours: 9AM - 6PM WAT</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h4>WhatsApp Me</h4>
+                        <p>+234 816 359 9253</p>
+                        <p>Fast Response & Quick Support</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form class="form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="feature">Feature Request</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <i class="fas fa-globe-americas"></i>
+                            <span class="brand-name">ChizuaFlow</span>
+                        </div>
+                        <p class="footer-description">
+                            Breaking language barriers with beautiful, AI-powered translation technology. 
+                            Created by Chizua - Computer Science student at UNIZIK, passionate about 
+                            connecting cultures through innovative web development.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <div class="link-group">
+                            <h4>Product</h4>
+                            <a href="#translator">Translator</a>
+                            <a href="#features">Features</a>
+                            <a href="#pricing">Pricing</a>
+                            <a href="#api">API Access</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Company</h4>
+                            <a href="#about">About Us</a>
+                            <a href="#careers">Careers</a>
+                            <a href="#press">Press</a>
+                            <a href="#contact">Contact</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Support</h4>
+                            <a href="#help">Help Center</a>
+                            <a href="#docs">Documentation</a>
+                            <a href="#status">System Status</a>
+                            <a href="#feedback">Feedback</a>
+                        </div>
+                        <div class="link-group">
+                            <h4>Legal</h4>
+                            <a href="#privacy">Privacy Policy</a>
+                            <a href="#terms">Terms of Service</a>
+                            <a href="#cookies">Cookie Policy</a>
+                            <a href="#gdpr">GDPR</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-copy">
+                        <p>&copy; 2024 ChizuaFlow by Chizua. All rights reserved.</p>
+                        <p class="academic-note">Academic Project • UNIZIK Computer Science • Educational Excellence</p>
+                    </div>
+                    <div class="footer-badges">
+                        <span class="badge">🎓 Academic Project</span>
+                        <span class="badge">🔒 Secure</span>
+                        <span class="badge">⚡ Fast</span>
+                        <span class="badge">💯 Accurate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="loading" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Translating...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
